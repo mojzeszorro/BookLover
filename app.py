@@ -1,6 +1,6 @@
 import os
-
-from flask import Flask, session
+f
+from flask import Flask, session, render_template
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -23,4 +23,15 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
-    return "Project 1: TODO"
+    '''login_page'''
+    return render_template("index.html")
+
+@app.route("/register")
+def register():
+    return render_template("register.hmtl")
+@app.route("/browse")
+def book_browser():
+    return render_template("browse.html")
+@app.route("/add")
+def add_review():
+    return render_template("add.html")
