@@ -1,0 +1,57 @@
+﻿@import "bootstrap";
+$nav-bg-color:aqua;
+$nav-li-color:blue;
+$nav-li-active: aquamarine;
+body {
+}
+
+ul{list-style-type: none;
+   margin:0;
+   padding:0;
+   width:25%;
+   color:$nav-bg-color;
+   height:100%;
+   position:fixed;
+   overflow:auto;
+}
+li {
+    a{display:block;
+      color: $nav-li-color;
+      padding: 8px 16px;
+      text-decoration:none
+    }
+    &:hover{
+        background-color:$nav-li-active;
+        color:white;
+    }
+}
+.dropdownbtn {
+    background-color:blue;
+    color:white;
+    padding:16px;
+    font-size:16px;
+    border:none;
+}
+.dropdown{
+    position:relative;
+    display:inline-block;
+&:hover .dropdown-content{display:block;}
+&:hover .dropbtn{background-color: #3e8e41;}
+}
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background-color:$nav-li-color;
+    min-width:160px;
+    height:100%;
+    box-shadow: 0px 8px 16px 0p rgba(0,0,0,0.2);
+    z-index:1;
+}
+.dropdown-content a{
+    color:black;
+    padding: 12px 16px;
+    text-decoration:none;
+    display:block;
+&:hover{
+    background-color:#ddd;}
+}

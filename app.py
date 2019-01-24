@@ -1,5 +1,5 @@
 import os
-f
+
 from flask import Flask, session, render_template
 from flask_session import Session
 from sqlalchemy import create_engine
@@ -29,9 +29,12 @@ def index():
 @app.route("/register")
 def register():
     return render_template("register.hmtl")
-@app.route("/browse")
+@app.route("/search")
 def book_browser():
-    return render_template("browse.html")
+    return render_template("search.html")
+@app.route("/logout")
+def logout():
+    return render_template("logout.html")
 @app.route("/add")
 def add_review():
     return render_template("add.html")
