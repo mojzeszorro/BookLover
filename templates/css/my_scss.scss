@@ -1,51 +1,62 @@
 ﻿@import "bootstrap";
-$nav-bg-color:aqua;
-$nav-li-color:blue;
-$nav-li-active: aquamarine;
-.navbar {
-    overflow: hidden;
-    background-color: #333; 
-    a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
+$bg-nav:rgba(0,123,255,0.7);
+$btn-color: transparent;
+$btn-color-hover:rgba(0,123,255,0.2);
+$btn-color-active: rgba(0,123,255,0.9);
+$jumbo-color:rgba(0,123,255,0.08);
+@media(max-width:576px){
+    .quick-search{
+        display:none;
+        
     }
 }
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;}
+#quick-login{
+    right:10px;
+    left:inherit;
+    
 }
-.dropdown {
-    float: left;
-    overflow: hidden;
-    .dropbtn {
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
+.bg-main{
+    background-color:$bg-nav;
+}
+.btn-secondary {
+    background-color: $btn-color;
+    border-color: $btn-color;
+
+    &:hover {
+        background-color: $btn-color-hover;
+        border-color: $btn-color-hover;
     }
-    &:hover .dropdown-content {
-    display: block;
-    } 
+
+    &:focus {
+        border-color: $btn-color-active;
+        box-shadow: none !important;
+    }
+
+    &:active {
+        background-color: $btn-color-active;
+        border-color: $btn-color-active;
+    }
+
+    &:not(:disabled):not(.disabled):active {
+        background-color: $btn-color-active !important;
+        border-color: $btn-color-active;
+    }
 }
-
-  
-
+.show > .btn-secondary.dropdown-toggle{
+    background-color:$btn-color-active;
+    border-color:$btn-color-active;
+    
+}
+.jumbotron-flex{
+    min-height:200px;
+}
+.container{
+    margin-top:10px;
+    .jumbotron{
+        background-color:$jumbo-color;
+        display:grid;
+        }
+}
+#logout-button{
+    display:none;
+}

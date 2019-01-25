@@ -10,25 +10,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <div class="dropdown">
-                <button class="dropbtn">Menu<i class="fa fa-carret-down"></i></button>
-                <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>  
-                </div>
+    <div class="navbar navbar-expand-md bg-main navbar-dark justify-content-between nav-main">
+        <div class="btn-group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">Menu</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{url_for('register')}}">Register</a>
+                <a class="dropdown-item" href="{{url_for('login')}}">Login</a>
+                <a class="dropdown-item" href="{{url_for('search')}}">Advanced Search</a>
+                <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
             </div>
-                <form class="form-inline" action="/action_page.php">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                  <button class="btn btn-success" type="submit">Chuj</button>
-                </form>
-              </nav>
-          
+        </div>`
+        <form class="form-inline quick-search" action="/action_page.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Quick search">
+            <button class="btn btn-secondary" type="submit">Search</button>
+        </form>
+        <div>
+            <button class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">Sign in</button>
+            <form class="dropdown-menu p-4" id="quick-login" method="post">
+                <div class="form-group">
+                    <label for="exampleDropdownFormEmail2">Email address</label>
+                    <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleDropdownFormPassword2">Password</label>
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+        </div>
+        <div id="logout-button">
+        <a class="btn btn-secondary" href="{{url_for('logout')}}">Log me out</a>
         
-      
-<div class="col-lg-12">
-  
-</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron col-lg-10 col-md-11 col-sm-11" style="margin-left:auto;margin-right:auto;">
+
+            <h2>{% block title %}{% endblock %}</h2>
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+    
 </body>
 </html>

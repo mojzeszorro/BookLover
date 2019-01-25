@@ -1,0 +1,26 @@
+﻿{% extends "layout.html" %}
+{% block title %} Registration {% blockend %}
+{% block body %} Registration {% blockend %}
+{% block body %} 
+<form id="login" method="post">
+    <div class="form-group">
+        <label for="username">Username: </label>
+        <input type="text" class="form-control" id="name" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <label for="email_add">Email address</label>
+        <   input type="email" class="form-control" id="email_add" placeholder="email@example.com">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label for="password2">Repeat password:</label>
+        <input type="password" class="form-control" id="password2" placeholder="Password">
+    </div>
+    {% if password == password2 %}
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+{% blockend %}

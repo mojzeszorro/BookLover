@@ -9511,52 +9511,60 @@ h3 {
     border-color: #dee2e6;
   }
 }
-.navbar {
-  overflow: hidden;
-  background-color: #333;
+@media (max-width: 576px) {
+  .quick-search {
+    display: none;
+  }
 }
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+#quick-login {
+  right: 10px;
+  left: inherit;
 }
 
-.dropdown-content {
+.bg-main {
+  background-color: rgba(0, 123, 255, 0.7);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-secondary:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+  border-color: rgba(0, 123, 255, 0.2);
+}
+.btn-secondary:focus {
+  border-color: rgba(0, 123, 255, 0.9);
+  box-shadow: none !important;
+}
+.btn-secondary:active {
+  background-color: rgba(0, 123, 255, 0.9);
+  border-color: rgba(0, 123, 255, 0.9);
+}
+.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: rgba(0, 123, 255, 0.9) !important;
+  border-color: rgba(0, 123, 255, 0.9);
+}
+
+.show > .btn-secondary.dropdown-toggle {
+  background-color: rgba(0, 123, 255, 0.9);
+  border-color: rgba(0, 123, 255, 0.9);
+}
+
+.jumbotron-flex {
+  min-height: 200px;
+}
+
+.container {
+  margin-top: 10px;
+}
+.container .jumbotron {
+  background-color: rgba(0, 123, 255, 0.08);
+  display: grid;
+}
+
+#logout-button {
   display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 /*# sourceMappingURL=my_css.css.map */

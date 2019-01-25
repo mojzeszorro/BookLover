@@ -28,13 +28,17 @@ def index():
 
 @app.route("/register")
 def register():
-    return render_template("register.hmtl")
-@app.route("/search")
+    return render_template("register.html")
+@app.route("/login",methods=["POST"])
+def login():
+    return render_template("login.html")
+@app.route("/search",methods=["POST"])
 def book_browser():
     return render_template("search.html")
 @app.route("/logout")
 def logout():
     return render_template("logout.html")
-@app.route("/add")
-def add_review():
-    return render_template("add.html")
+@app.route("/error")
+def error():
+    return render_template("error.html")
+
