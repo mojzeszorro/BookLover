@@ -1,0 +1,26 @@
+﻿{% extends "layout.html" %}
+{% block title %} Login {% blockend %}
+
+{% block content %}
+{% if not success and not session['logged_in'] %}
+<form id="login" method="post" action="{{url_for('log_user'}}">
+    <h2>Login</h2>
+    <div class="form-group">
+        <label for="username">Username: </label>
+        <input type="text" class="form-control" id="name" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+
+    <button class="btn btn-success sign">Log me in</button>
+
+</form>
+{% elseif and session['logged_in'] %}
+<div class=" jumbotron success"><strong>{{ success }}</strong><br />Enjoy the magnifique world of books</div>
+{% endif %}
+{% if failure %}
+<div class="jumbotron failure"> {{failure}} </div>
+{% endif %}
+{% blockend %}

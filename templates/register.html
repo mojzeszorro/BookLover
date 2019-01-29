@@ -1,26 +1,29 @@
 ﻿{% extends "layout.html" %}
 {% block title %} Registration {% blockend %}
-{% block body %} Registration {% blockend %}
-{% block body %} 
-<form id="login" method="post">
+
+{% block content %} 
+{% if not session['logged_in']}
+<form id="login" method="post" action="{{url_for('add_user_to_database'}}>
     <div class="form-group">
         <label for="username">Username: </label>
-        <input type="text" class="form-control" id="name" placeholder="Username">
+        <input type="text" name ="login" class="form-control" id="name" placeholder="Username">
     </div>
     <div class="form-group">
         <label for="email_add">Email address</label>
-        <   input type="email" class="form-control" id="email_add" placeholder="email@example.com">
+        <input type="email" name="email_add" class="form-control" id="email_add" placeholder="email@example.com">
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
     </div>
     <div class="form-group">
         <label for="password2">Repeat password:</label>
-        <input type="password" class="form-control" id="password2" placeholder="Password">
+        <input type="password" name="password2" class="form-control" id="password2" placeholder="Repeat password">
     </div>
-    {% if password == password2 %}
-    {% endif %}
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    
+    <button type="submit" class="btn btn-success sign">Sign in</button>
 </form>
+{% elseif %}
+<div class="jumbotron success"><p>You are already registered !</p></div>
+{% endif %}
 {% blockend %}

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="css/my_css.css">
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/my_css.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
@@ -19,36 +19,42 @@
                 <a class="dropdown-item" href="{{url_for('search')}}">Advanced Search</a>
                 <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
             </div>
-        </div>`
-        <form class="form-inline quick-search" action="/action_page.php">
+        </div>
+    </div>
+     <div id="searcher">
+        <form class="form-inline quick-search" method="post" action="{{url_for('search')}}">
             <input class="form-control mr-sm-2" type="text" placeholder="Quick search">
             <button class="btn btn-secondary" type="submit">Search</button>
         </form>
+        {% if not session.logged_in %}
         <div>
             <button class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">Sign in</button>
-            <form class="dropdown-menu p-4" id="quick-login" method="post">
+            <form class="dropdown-menu p-4" id="quick-login" method="post" action="{{url_for('log_user')}}">
                 <div class="form-group">
-                    <label for="exampleDropdownFormEmail2">Email address</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                    <label for="email-add">Email address</label>
+                    <input type="email" class="form-control" id="email-add" placeholder="email@example.com">
                 </div>
                 <div class="form-group">
-                    <label for="exampleDropdownFormPassword2">Password</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
                 </div>
-
+                
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
         </div>
+        {% else %}
         <div id="logout-button">
         <a class="btn btn-secondary" href="{{url_for('logout')}}">Log me out</a>
         
         </div>
+        {% endif %}
     </div>
+   
     <div class="container">
         <div class="jumbotron col-lg-10 col-md-11 col-sm-11" style="margin-left:auto;margin-right:auto;">
 
-            <h2>{% block title %}{% endblock %}</h2>
-            {% block body %}{% endblock %}
+            
+            {% block content %}{% endblock %}
         </div>
     </div>
     
