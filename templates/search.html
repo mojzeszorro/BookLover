@@ -1,0 +1,56 @@
+﻿{% extends "layout.html" %}
+{% block title %} Advanced Book Search {% endblock %}
+
+{% block content %}
+{% if session.logged_in and not result %}
+<div class="jumbotron col-lg-10 col-md-11 col-sm-11" style="margin-left:auto;margin-right:auto;">
+    <form id="search" method="post" action="{{url_for('search_book')}}">
+        <div class="form-group">
+            <h1> Advanced search </h1>
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" name="author" class="form-control" id="author" placeholder="Enter author">
+        </div>
+        <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" name="isbn" class="form-control" id="isbn" placeholder="Enter ISBN number">
+        </div>
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input type="text" name="year" class="form-control" id="year" placeholder="Enter year">
+        </div>
+
+        <button type="submit" class="btn btn-success sign">Search</button>
+    </form>
+</div>
+{% endif %}
+{% if not session.logged_in %}
+<div class="jumbotron failure"><p> You have to log in to use this feature </p></div>
+{% endif %}
+{% if session.logged_in and result %}
+<div class="jumbotron col-lg-10 col-md-11 col-sm-11" style="margin-left:auto;margin-right:auto;">
+<table class="table table-hover table-responvive">
+<thead>
+ <tr>
+     <th class="text-center">Title</th>
+     <th>Author</th>
+     <th>Year</th>
+ </tr>
+</thead>
+<tbody>
+{% for results in result %}
+    <tr>
+        <td class="text-center"><a href={{url_for('book',book_id=results.id)}}>{{results.title}}</a></td>
+        <td>{{results.author}}</td>
+        <td>{{results.year}}</td>
+
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endif %}
+{% endblock %}

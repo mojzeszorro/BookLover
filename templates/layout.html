@@ -10,20 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div class="navbar navbar-expand-md bg-main navbar-dark justify-content-between nav-main">
+    <div class="navbar navbar-expand-sm bg-main navbar-dark justify-content-between">
         <div class="btn-group">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">Menu</button>
             <div class="dropdown-menu">
+                {% if not session.logged_in %}
                 <a class="dropdown-item" href="{{url_for('register')}}">Register</a>
                 <a class="dropdown-item" href="{{url_for('login')}}">Login</a>
+                {% endif %}
                 <a class="dropdown-item" href="{{url_for('search')}}">Advanced Search</a>
                 <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
             </div>
         </div>
-    </div>
-     <div id="searcher">
-        <form class="form-inline quick-search" method="post" action="{{url_for('search')}}">
-            <input class="form-control mr-sm-2" type="text" placeholder="Quick search">
+        <form class="form-inline quick-search" action={{url_for('quick_search')}} method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="Quick search" name="quick">
             <button class="btn btn-secondary" type="submit">Search</button>
         </form>
         {% if not session.logged_in %}
@@ -31,31 +31,31 @@
             <button class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">Sign in</button>
             <form class="dropdown-menu p-4" id="quick-login" method="post" action="{{url_for('log_user')}}">
                 <div class="form-group">
-                    <label for="email-add">Email address</label>
-                    <input type="email" class="form-control" id="email-add" placeholder="email@example.com">
+                    <label for="login">Login</label>
+                    <input type="text" class="form-control" id="login" name="login" placeholder="login">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
         </div>
         {% else %}
         <div id="logout-button">
-        <a class="btn btn-secondary" href="{{url_for('logout')}}">Log me out</a>
-        
+            <a class="btn btn-secondary" href="{{url_for('logout')}}">Log me out</a>
+
         </div>
         {% endif %}
     </div>
    
     <div class="container">
-        <div class="jumbotron col-lg-10 col-md-11 col-sm-11" style="margin-left:auto;margin-right:auto;">
+        
 
             
             {% block content %}{% endblock %}
-        </div>
+        
     </div>
     
 </body>

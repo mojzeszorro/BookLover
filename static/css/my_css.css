@@ -9511,6 +9511,26 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.failure, .success {
+  font-family: sans-sefif;
+  font-size: 24px;
+  text-align: center;
+  padding: 10px 2px 10px 2px;
+  max-height: 60px;
+  width: 100%;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.success {
+  background-color: rgba(0, 255, 33, 0.4) !important;
+  border: 1px solid #00ff21;
+}
+
+.failure {
+  background-color: rgba(255, 0, 0, 0.4) !important;
+  border: 1px solid red;
+}
+
 @media (max-width: 576px) {
   .quick-search {
     display: none;
@@ -9565,10 +9585,6 @@ h3 {
 .container .jumbotron {
   background-color: rgba(0, 123, 255, 0.08);
   display: grid;
-}
-
-#logout-button {
-  display: none;
 }
 
 body {

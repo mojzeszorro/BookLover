@@ -13,7 +13,7 @@ while True:
         db.commit()
         break
     elif choice =="2":
-        db.execute("CREATE TABLE profiles(id SERIAL PRIMARY KEY, login VARCHAR NOT NULL, password VARCHAR NOT NULL,email_add VARCHAR NOT NULL)")
+        db.execute("CREATE TABLE profiles(id SERIAL PRIMARY KEY, login VARCHAR NOT NULL UNIQUE, password TEXT NOT NULL,email_add VARCHAR NOT NULL)")
         db.commit()
         break
     elif choice=="3":

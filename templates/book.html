@@ -1,0 +1,25 @@
+﻿{% extends "layout.html" %}
+
+{% block title %}
+    {{book.title}} - We love reading!
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center">{{book.title}} ({{book.year}})</h1>
+<h2 class="text-center">by {{book.author}}</h2>
+<h5 class="text-center"><strong>{{rating}}</strong> based on <strong>{{rating_count}}</strong> votes on <strong>Goodreads</strong></h5>
+{% if cover %}
+<img src={{cover}}>
+{% else %}
+<p>Image not provided</p>
+{% endif %}
+<h5 class="text-justify">Description:<br />
+{% if desc %}
+    {{desc}}
+{% else %}
+<p>Description not available</p>
+{% endif %}
+    </h5>    
+<h1>WeLoveReading Reviews</h1>
+
+    {% endblock %}

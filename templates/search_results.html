@@ -1,0 +1,14 @@
+﻿{% extends "layout.html" %}
+{% block title %} Advanced Book Search {% endblock %}
+
+{% block content %}
+{% if result %}
+<div class="jumbotron bg-info">
+    <ol>
+        {% for results in result %}
+        <li><a href='books/'+{{results.id}}>{{results.title}}</a></li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+{% endblock %}
