@@ -81,7 +81,7 @@ def search():
 def search_book():
     command = "SELECT * FROM books WHERE"
     title = request.form.get("title")
-    command+=" title"
+    command+=" title "
     if title=="":
             command+="=COALESCE(title)"
     else:
