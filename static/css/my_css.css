@@ -9585,6 +9585,7 @@ h3 {
 .container .jumbotron {
   background-color: rgba(0, 123, 255, 0.08);
   display: grid;
+  text-align: center;
 }
 
 body {
